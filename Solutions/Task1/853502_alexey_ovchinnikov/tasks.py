@@ -89,7 +89,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-p','--problem', choices=['count', 'sort', 'fibonacci'], default='count')
 parser.add_argument('-s','--sort', choices=['quick', 'merge'])
 parser.add_argument('-fn', '--filename', choices=['text_data.txt', 'data.txt'], default='data.text')
-parser.add_argument('-fib', '--fibonacci', choices=['20', '50', '100', '150'], default='8')
+parser.add_argument('-fib', '--fibonacci')
 args = parser.parse_args()
 problem = args.problem
 fib_num = args.fibonacci
@@ -103,6 +103,8 @@ if problem == 'count' or problem == 'repeat':
     for (key, value) in stats.items():
             print(key, ':', value)
     print('Sentence made of the most common words in sequence:', repeat(stats))
+    # else:
+    #     word_count(problem, string)
 elif problem == 'sort':
     arr = open_data(file_name)
     if sort == 'quick':
