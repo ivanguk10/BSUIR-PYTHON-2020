@@ -103,8 +103,6 @@ if problem == 'count' or problem == 'repeat':
     for (key, value) in stats.items():
             print(key, ':', value)
     print('Sentence made of the most common words in sequence:', repeat(stats))
-    # else:
-    #     word_count(problem, string)
 elif problem == 'sort':
     arr = open_data(file_name)
     if sort == 'quick':
