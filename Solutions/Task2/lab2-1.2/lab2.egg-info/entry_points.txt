@@ -1,0 +1,7 @@
+[console_scripts]
+decorator = lab2_setupable.script_files:decorator_exmpl
+json = lab2_setupable.script_files:json_exmpl
+singleton = lab2_setupable.script_files:singleton_exmpl
+sorting = lab2_setupable.script_files:sort_exmpl
+vector = lab2_setupable.script_files:vector_exmpl
+
