@@ -34,6 +34,3 @@ class TestJson(unittest.TestCase):
     def test_from_json(self):
         result = json_converter.from_json(self.json)
         self.assertEqual(result, json.loads(self.json))
-
-if __name__ == '__main__':
-    unittest.main()
