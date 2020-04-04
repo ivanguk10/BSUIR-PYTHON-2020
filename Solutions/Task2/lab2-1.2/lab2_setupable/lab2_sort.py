@@ -120,7 +120,6 @@ class ExternalSort:
     # </editor-fold>
 
     def sort_external(file_path, result_path):
-        print(file_path)
         if not (os.path.exists(file_path)):
             raise FileNotFoundError('file not found')
         ExternalSort.sorting(file_path)

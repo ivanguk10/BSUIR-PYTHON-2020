@@ -9,14 +9,7 @@ class CacheDecorator:
                         CacheDecorator._func_values_[function.__name__][1] == kwargs:
                     print("Decorator works!")
                     return CacheDecorator._func_values_[function.__name__][2]
-            result = 0
-            try:
-                result = function(*args, **kwargs)
-            except Exception:
-                try:
-                    result = function(*args)
-                except Exception:
-                    result = function(**kwargs)
+            result = function(*args, **kwargs)
             CacheDecorator._func_values_[function.__name__] = (args, kwargs, result)
             return result
         return wrapper

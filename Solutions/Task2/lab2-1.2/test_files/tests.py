@@ -24,7 +24,7 @@ def test_func_2(number, bubble):
 
 
 @CacheDecorator.cache
-def test_func_3(**kwargs):
+def test_func_3(*args, **kwargs):
     return True
 
 
@@ -60,11 +60,12 @@ class TestSort(unittest.TestCase):
 class TestJSON(unittest.TestCase):
     def test_JSON(self):
         test_dict = {"data": ['value1', True, 123], "value": [{"value_1": "value1", "value_2": [1, 2, 3]}, 1]}
-        test_list = ["value", True, {1: '1', "r": 12}]
+        test_list = ["value", True, {1: '1', "r": 10}]
         test_data = TestClass(18, 'Andrey', True, ['Check', 'test', [1, 2, 3]])
         serialized = JSON.serialize(test_data)
         serialized_dict = JSON.serialize(test_dict)
         serialized_list = JSON.serialize(test_list)
+        JSON.deserialize(serialized_list)
         JSON.deserialize(serialized_dict)
         self.assertTrue(isinstance(serialized_dict, str))
         test_result = JSON.deserialize(serialized)
@@ -131,7 +132,7 @@ class TestDecorator(unittest.TestCase):
         self.assertTrue(test_func(10, 1, 3, 3, 4) == test_func(10, 3, 1, 3, 4))
         self.assertTrue(test_func(10, 1, 3, 3, 4) == test_func(10, 1, 3, 3, 4))
         self.assertEqual(test_func_2(12, 25), test_func_2(bubble=25, number=12))
-        self.assertTrue(test_func_3(val= "value", map= "map"))
+        self.assertTrue(test_func_3(10, 14, 88, val= "value", map= "map"))
 
 
 class TestSingleton(unittest.TestCase):
