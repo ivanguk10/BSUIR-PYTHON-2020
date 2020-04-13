@@ -13,4 +13,3 @@ class CacheDecorator:
             CacheDecorator._func_values_[function.__name__] = (args, kwargs, result)
             return result
         return wrapper
-

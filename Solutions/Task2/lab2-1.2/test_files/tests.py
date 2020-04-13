@@ -36,7 +36,15 @@ class TestClass2:
         self.ingo = ['', '', False]
 
 
-class TestClass(metaclass=Singleton):
+class TestClassSingle2(metaclass=Singleton):
+
+    def __init__(self, name='', attributes=[]):
+        self.attributes = attributes
+        self.name = name
+        self.cl = TestClass2()
+
+
+class TestClassSingle(metaclass=Singleton):
 
     def __init__(self, age = 0, name = '', sex = False, attributes=[]):
         self.age = age
@@ -61,7 +69,7 @@ class TestJSON(unittest.TestCase):
     def test_JSON(self):
         test_dict = {"data": ['value1', True, 123], "value": [{"value_1": "value1", "value_2": [1, 2, 3]}, 1]}
         test_list = ["value", True, {1: '1', "r": 10}]
-        test_data = TestClass(18, 'Andrey', True, ['Check', 'test', [1, 2, 3]])
+        test_data = TestClassSingle(18, 'Andrey', True, ['Check', 'test', [1, 2, 3]])
         serialized = JSON.serialize(test_data)
         serialized_dict = JSON.serialize(test_dict)
         serialized_list = JSON.serialize(test_list)
@@ -127,7 +135,6 @@ class TestVectorMethods(unittest.TestCase):
 
 class TestDecorator(unittest.TestCase):
     def test_decorator(self):
-
         self.assertTrue(test_func(10, 1, 3, 3, 4) != test_func(12, 5, 7))
         self.assertTrue(test_func(10, 1, 3, 3, 4) == test_func(10, 3, 1, 3, 4))
         self.assertTrue(test_func(10, 1, 3, 3, 4) == test_func(10, 1, 3, 3, 4))
@@ -137,7 +144,8 @@ class TestDecorator(unittest.TestCase):
 
 class TestSingleton(unittest.TestCase):
     def test_singleton(self):
-        self.assertEqual(TestClass(name = "name"), TestClass())
+        self.assertEqual(TestClassSingle2(name="name"), TestClassSingle2())
+        self.assertEqual(TestClassSingle(name="name"), TestClassSingle())
 
 # </editor-fold>
 

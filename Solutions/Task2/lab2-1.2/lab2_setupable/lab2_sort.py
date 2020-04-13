@@ -19,29 +19,17 @@ class HeapqMerging:
     def heap_push_pop(self):
         while self.heapsize > 1:
             returned_value = self.heap[0][0]
-            try:
-                next_value = next(self.heap[0][1])
-                self.heap[0] = next_value, self.heap[0][1]
-                self.heapify(0)
-            except StopIteration:
-                self.heap[0] = next(self.heap[self.heapsize - 1][1]), self.heap[self.heapsize - 1][1]
-                self.heapsize -= 1
-                self.heapify(0)
+            next_value = next(self.heap[0][1])
+            self.heap[0] = next_value, self.heap[0][1]
+            self.heapify(0)
             yield returned_value
-        else:
-            try:
-                while True:
-                    yield next(self.heap[0][1])
-            except StopIteration:
-                raise StopIteration
 
     def push(self, iter):
-        try:
             next_value = next(iter)
             self.heap.append(tuple([next_value, iter]))
             self.heapsize += 1
             position = self.heapsize - 1
-            while True: # 2*root + 1 = pos  root = (pos - 1)/2
+            while True:
                 root_position = int((position - 1)/2) if position % 2 == 1 else int((position - 2)/2)
                 if root_position < 0:
                     return True
@@ -51,8 +39,6 @@ class HeapqMerging:
                         position = root_position
                     else:
                         return True
-        except StopIteration:
-            return False
 
     def __init__(self, *args):
         for iter in list(args):

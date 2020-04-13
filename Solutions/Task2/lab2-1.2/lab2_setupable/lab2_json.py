@@ -7,6 +7,7 @@ class JSON:
         'str': lambda x, offset: '\"{}\",\n'.format(x),
         'int': lambda x, offset: '{},\n'.format(x),
         'dict': lambda x, offset: '{},\n'.format(JSON._dict_(x, offset + 3)),
+        'tuple': lambda x, offset: '{},\n'.format(JSON._dict_(x, offset + 3)),
         'list': lambda x, offset: '{},\n'.format(JSON._list_(x, offset + 3)),
         'object': lambda x, offset: '{},\n'.format(JSON._obj_(x, offset + 3, False))
     }
