@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: Lab2-package-sovspace
+Version: 1.0
+Summary: Package of second lab tasks
+Home-page: https://github.com/sovspace/Python-Labs
+Author-email: sovspace@gmail.com
+License: UNKNOWN
+Description: # Лабораторная работа №2
+        
+        ## Список заданий
+        ### Основные задания:
+        * `ExternalSort` - класс для внешней сортировки большего файла
+        * `to_json` - класс для сериализации в JSON
+        * `cached` - декоратор для мемоизации значений функции
+        * `NVector` - класс для работы с математическим вектором 
+        * Юнит тесты для каждого задания
+        
+        
+        ### Дополнительные задания:
+        * `Singleton` - метакласс для реализации паттерна Одиночка
+        * Реализация устанавливаемого пакета
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown

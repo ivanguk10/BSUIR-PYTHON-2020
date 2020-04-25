@@ -1,0 +1,12 @@
+README.md
+setup.py
+Lab2_package_sovspace.egg-info/PKG-INFO
+Lab2_package_sovspace.egg-info/SOURCES.txt
+Lab2_package_sovspace.egg-info/dependency_links.txt
+Lab2_package_sovspace.egg-info/top_level.txt
+src/ExternalSorter.py
+src/NVector.py
+src/Singleton.py
+src/__init__.py
+src/cached.py
+src/to_json.py
